@@ -1,0 +1,9 @@
+prototype(W3bkit.FlowUI:Layout) {
+    @class = ${'W3bkit\\FlowUI\\Fusion\\Layout'}
+    content = afx`
+        <W3bkit.FlowUI:Document.HTML>
+            {props.content}
+        </W3bkit.FlowUI:Document.HTML>
+    `
+
+}
