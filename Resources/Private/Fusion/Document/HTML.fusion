@@ -1,0 +1,9 @@
+prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
+
+    doctype = ${'<!DOCTYPE html>'}
+
+    renderer = afx`
+        {props.doctype}
+    `
+
+}
