@@ -1,0 +1,8 @@
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'W3bkit.FlowUI': true
+  Fusion:
+    autoInclude:
+      'W3bkit.FlowUI': true
