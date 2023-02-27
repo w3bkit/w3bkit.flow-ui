@@ -2,8 +2,39 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
 
     doctype = ${'<!DOCTYPE html>'}
 
+    html = Neos.Fusion:Join {
+        lang = ${'en'}
+    }
+
+    @context.meta = Neos.Fusion:DataStructure {
+        viewport = ${'width=device-width, initial-scale=1, user-scalable=no'}
+    }
+
+    head = Neos.Fusion:Tag {
+        tagName = ${'head'}
+        content = Neos.Fusion:Component {
+            renderer = afx`
+                <meta charset='utf-8' />
+                <Neos.Fusion:Loop items={meta} >
+                    <meta name={Array.keys(meta)[Array.indexOf(meta, item)]} content={item} />
+                </Neos.Fusion:Loop>
+            `
+        }
+    }
+
+    body = Neos.Fusion:Tag {
+        tagName = ${'body'}
+        content = afx`
+            {props.content}
+        `
+    }
+
     renderer = afx`
         {props.doctype}
+        <html lang={props.html.lang} >
+            {props.head}
+            {props.body}
+        </html>
     `
 
 }
