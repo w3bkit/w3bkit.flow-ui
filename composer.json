@@ -1,7 +1,6 @@
 {
     "name": "w3bkit/flow-ui",
     "type": "neos-package",
-    "version": "0.0.1-alpha",
     "description": "Flow UI package.",
     "require": {
         "neos/flow": "*",
