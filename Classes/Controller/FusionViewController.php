@@ -13,7 +13,7 @@
      * 
      * @method initializeView(ViewInterface $view):void
      */
-    abstract class AbstractFusionViewController extends ActionController {
+    abstract class FusionViewController extends ActionController {
 
         /**
          * @var FusionView
