@@ -1,5 +1,5 @@
 prototype(W3bkit.FlowUI:Layout) {
-    @class = ${'W3bkit\\FlowUI\\Fusion\\Layout'}
+    @class = 'W3bkit\\FlowUI\\Fusion\\Layout'
     content = afx`
         <W3bkit.FlowUI:Document.HTML>
             <main id='w3bkit-main-wrapper' class='vw-100 vh-100'>
