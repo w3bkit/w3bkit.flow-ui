@@ -8,6 +8,11 @@
         "neos/fusion-afx": "*",
         "twbs/bootstrap": "^5.2"
     },
+    "autoload": {
+        "psr-4": {
+            "W3bkit\\FlowUI\\": "Classes/"
+        }
+    },
     "extra": {
         "neos": {
             "package-key": "W3bkit.FlowUI"
