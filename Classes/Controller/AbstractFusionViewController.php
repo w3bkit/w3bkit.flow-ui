@@ -9,6 +9,7 @@
 
     /**
      * @property FusionView
+     * @property array
      * 
      * @method initializeView(ViewInterface $view):void
      */
@@ -20,11 +21,17 @@
         protected $defaultViewObjectName = FusionView::class;
 
         /**
+         * @Flow\InjectConfiguration(type="FlowUI")
+         * @var array
+         */
+        protected $flowUIconfig = array();
+
+        /**
          * @param ViewInterface $view
          * @return void
          */
         protected function initializeView(ViewInterface $view):void {
-            
+            $this->view->assign('FlowUIconfig', $this->flowUIconfig);
         }
 
     }
