@@ -3,7 +3,7 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
     doctype = ${'<!DOCTYPE html>'}
 
     html = Neos.Fusion:Join {
-        lang = ${'en'}
+        lang = ${Configuration.setting('W3bkit.FlowUI.html.lang') ?: 'en'}
     }
 
     @context.meta = Neos.Fusion:DataStructure {
@@ -22,18 +22,13 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
         }
     }
 
-    body = Neos.Fusion:Tag {
-        tagName = ${'body'}
-        content = afx`
-            {props.content}
-        `
-    }
-
     renderer = afx`
         {props.doctype}
         <html lang={props.html.lang} >
             {props.head}
-            {props.body}
+            <body>
+                {props.content}
+            </body>
         </html>
     `
 

@@ -1,10 +1,7 @@
-prototype(W3bkit.FlowUI:Layout) {
-    @class = 'W3bkit\\FlowUI\\Fusion\\Layout'
-    content = afx`
+prototype(W3bkit.FlowUI:Layout) < prototype(Neos.Fusion:Component) {
+    renderer = afx`
         <W3bkit.FlowUI:Document.HTML>
-            <main id='w3bkit-main-wrapper' class='vw-100 vh-100'>
-                {props.content}
-            </main>
+            {props.page}
         </W3bkit.FlowUI:Document.HTML>
     `
 }
