@@ -55,7 +55,7 @@ prototype(W3bkit.Demo:HomeController.Index) < prototype(Neos.Fusion:Component) {
     `
 
     renderer = afx`
-        <W3bkit.Demo:Layout.Default content={props.content} />
+        <W3bkit.Demo:Layout.Custom content={props.content} />
     `
 
 }
