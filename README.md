@@ -12,7 +12,7 @@ composer require w3bkit/flow-ui
 
 Since there are fallbacks, most of this settings are optional.
 However if you want to include Bootstrap CSS, this value has to be `true`.
-This example shows available settings and there default value.
+This example shows available settings and their default value.
 
 <sub>Configuration/FlowUI.yaml</sub>
 ```yaml
