@@ -10,11 +10,19 @@ composer require w3bkit/flow-ui
 
 ## Configuration
 
+Since there are fallbacks, most of this settings are optional.
+However if you want to include Bootstrap CSS, this value has to be `true`.
+This example shows available settings and there default value.
+
 <sub>Configuration/FlowUI.yaml</sub>
 ```yaml
 html:
   lang: en
-viewport: 'width=device-width, initial-scale=1, user-scalable=no'
+viewport:
+  width: device-width
+  scale: 1
+bootstrap:
+  include: false
 ```
 
 ## Usage

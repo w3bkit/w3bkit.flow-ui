@@ -1,0 +1,3 @@
+prototype(W3bkit.FlowUI:Bootstrap) {
+	@class = 'W3bkit\\FlowUI\\Fusion\\Bootstrap'
+}

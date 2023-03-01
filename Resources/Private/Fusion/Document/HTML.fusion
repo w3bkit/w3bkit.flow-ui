@@ -1,26 +1,35 @@
 prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
 
-    doctype = ${'<!DOCTYPE html>'}
+    doctype = ${ '<!DOCTYPE html>' }
 
     @context.meta = Neos.Fusion:DataStructure {
-        viewport = ${FlowUIconfig.viewport || 'width=device-width, initial-scale=1, user-scalable=no'}
+        viewport = W3bkit.FlowUI:Viewport {
+            width = ${ FlowUIconfig.viewport.width || 'device-width' }
+            scale = ${ FlowUIconfig.viewport.scale || 1 }
+        }
+    }
+
+    @context.bootstrap = Neos.Fusion:Tag {
+        tagName = ${ 'style' }
+        content = W3bkit.FlowUI:Bootstrap
     }
 
     head = Neos.Fusion:Tag {
-        tagName = ${'head'}
+        tagName = ${ 'head' }
         content = Neos.Fusion:Component {
             renderer = afx`
                 <meta charset='utf-8' />
-                <Neos.Fusion:Loop items={meta} >
-                    <meta name={itemKey} content={item} />
+                <Neos.Fusion:Loop items={ meta } >
+                    <meta name={ itemKey } content={ item } />
                 </Neos.Fusion:Loop>
+                { FlowUIconfig.bootstrap.include && bootstrap }
             `
         }
     }
 
     renderer = afx`
         {props.doctype}
-        <html lang={FlowUIconfig.html.lang || 'en'} >
+        <html lang={ FlowUIconfig.html.lang || 'en' } >
             {props.head}
             <body>
                 {props.content}

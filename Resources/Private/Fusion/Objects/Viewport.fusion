@@ -1,0 +1,3 @@
+prototype(W3bkit.FlowUI:Viewport) {
+	@class = 'W3bkit\\FlowUI\\Fusion\\Viewport'
+}
