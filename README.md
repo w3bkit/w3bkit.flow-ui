@@ -52,7 +52,32 @@ prototype(W3bkit.Demo:Layout.Custom) < prototype(W3bkit.FlowUI:Layout) {
 
 Use the custom layout:
 
-<sub>Index.fusion</sub>
+<sub>Classes/Controller/HomeController.php</sub>
+```php
+<?php
+
+    namespace W3bkit\Demo\Controller;
+    
+    use W3bkit\FlowUI\Controller\FusionViewController;
+
+    /**
+     * @method indexAction():void
+     */
+    class HomeController extends FusionViewController {
+
+        /**
+         * @return void
+         */
+        public function indexAction():void {
+            
+        }
+
+    }
+
+?>
+```
+
+<sub>Resources/Private/Fusion/Controller/Home/Index.fusion</sub>
 ```html
 W3bkit.Demo.HomeController.index = W3bkit.Demo:HomeController.Index
 
