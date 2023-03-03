@@ -1,23 +1,38 @@
 <?php
 
-	namespace W3bkit\FlowUI\Fusion;
+    namespace W3bkit\FlowUI\Fusion;
 
-	use Neos\Flow\Annotations as Flow;
-	use Neos\Fusion\FusionObjects\AbstractFusionObject;
+    use Neos\Flow\Annotations as Flow;
+    use Neos\Fusion\FusionObjects\AbstractFusionObject;
 
-	/**
-	 * @method evaluate():string
-	 */
-	class Viewport extends AbstractFusionObject {
+    use W3bkit\FlowUI\Service\TagService;
 
-		/**
-		* @return string
-		*/
-		public function evaluate():string {
-			$width = $this->fusionValue('width');
-			$scale = $this->fusionValue('scale');
-			return 'width=' . $width . ', initial-scale=' . $scale;
-		}
-	}
+    /**
+     * @property TagService
+     * 
+     * @method evaluate():string
+     */
+    class Viewport extends AbstractFusionObject {
+
+        /**
+         * @Flow\Inject
+         * @var TagService
+         */
+        protected $tagService;
+
+        /**
+        * @return string
+        */
+        public function evaluate():string {
+            return $this->tagService->build('meta', '', array(
+                'name' => 'viewport',
+                'content' => implode(', ', array(
+                    'width=' . $this->fusionValue('width'),
+                    'initial-scale=' . $this->fusionValue('scale')
+                ))
+            ));
+        }
+        
+    }
 
 ?>
