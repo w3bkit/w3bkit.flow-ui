@@ -20,7 +20,9 @@
         public function build(string $name, string $content = '', array $attributes = array()):string {
             $open = '<' . $name;
             foreach( $attributes as $key => $value ) {
-                $open .= ' ' . $key . '="' . $value . '"';
+                if( $value ) {
+                    $open .= ' ' . $key . '="' . $value . '"';
+                }
             }
             $open .= $content ? '>' : '/>';
             if( !$content ) {

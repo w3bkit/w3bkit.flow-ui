@@ -13,6 +13,7 @@
      * @method scan(string $path):array
      * @method find(string $package):string
      * @method tmp(string $path):string
+     * @method filetype(string $file):string
      */
     class ResourceService {
 
@@ -52,6 +53,16 @@
          */
         public function tmp(string $path):string {
             return $this->resourceManager->importResource($path)->createTemporaryLocalCopy();
+        }
+
+        /**
+         * @param string $file
+         * @return string
+         */
+        public function filetype(string $file):string {
+            $dot = strrpos($file, '.');
+            $type = substr($file, $dot + 1);
+            return $type;
         }
 
     }

@@ -25,6 +25,9 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
                     <meta name={ itemKey } content={ item } />
                 </Neos.Fusion:Loop>
                 { bootstrap }
+                <Neos.Fusion:Loop items={ FlowUIconfig.cdn } >
+                    <W3bkit.FlowUI:CDN data={ item } />
+                </Neos.Fusion:Loop>
             `
         }
     }
