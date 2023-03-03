@@ -2,8 +2,8 @@
 
     namespace W3bkit\FlowUI;
 
-    use Neos\Flow\Configuration\ConfigurationManager;
     use Neos\Flow\Core\Bootstrap;
+    use Neos\Flow\Configuration\ConfigurationManager;
 
     /**
      * @method boot(Bootstrap $bootstrap):void

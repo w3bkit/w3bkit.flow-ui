@@ -22,7 +22,7 @@ viewport:
   width: device-width
   scale: 1
 bootstrap:
-  include: false
+  style: false
 ```
 
 ## Usage

@@ -2,16 +2,17 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
 
     doctype = ${ '<!DOCTYPE html>' }
 
-    @context.meta = Neos.Fusion:DataStructure {
-        viewport = W3bkit.FlowUI:Viewport {
-            width = ${ FlowUIconfig.viewport.width || 'device-width' }
-            scale = ${ FlowUIconfig.viewport.scale || 1 }
-        }
+    @context.viewport = W3bkit.FlowUI:Viewport {
+        width = ${ FlowUIconfig.viewport.width || 'device-width'}
+        scale = ${ FlowUIconfig.viewport.scale || 1 }
     }
 
-    @context.bootstrap = Neos.Fusion:Tag {
-        tagName = ${ 'style' }
-        content = W3bkit.FlowUI:Bootstrap
+    @context.bootstrap = W3bkit.FlowUI:Bootstrap {
+        style = ${ FlowUIconfig.bootstrap.style }
+        minify = ${ FlowUIconfig.bootstrap.minify }
+        cache = ${ FlowUIconfig.bootstrap.cache }
+        script = ${ FlowUIconfig.bootstrap.script }
+        icons = ${ FlowUIconfig.bootstrap.icons }
     }
 
     head = Neos.Fusion:Tag {
@@ -19,10 +20,11 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
         content = Neos.Fusion:Component {
             renderer = afx`
                 <meta charset='utf-8' />
-                <Neos.Fusion:Loop items={ meta } >
+                { viewport }
+                <Neos.Fusion:Loop items={ FlowUIconfig.meta } >
                     <meta name={ itemKey } content={ item } />
                 </Neos.Fusion:Loop>
-                { FlowUIconfig.bootstrap.include && bootstrap }
+                { bootstrap }
             `
         }
     }
