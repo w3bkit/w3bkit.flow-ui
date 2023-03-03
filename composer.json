@@ -6,7 +6,9 @@
         "neos/flow": "~8.2.0",
         "neos/fusion": "^8.2",
         "neos/fusion-afx": "^8.2",
-        "twbs/bootstrap": "^5.2"
+        "twbs/bootstrap": "^5.2",
+        "twbs/bootstrap-icons": "^1.10",
+        "scssphp/scssphp": "^1.11"
     },
     "autoload": {
         "psr-4": {
