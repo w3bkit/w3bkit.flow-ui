@@ -3,7 +3,7 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
     doctype = ${ '<!DOCTYPE html>' }
 
     @context.viewport = W3bkit.FlowUI:Viewport {
-        width = ${ FlowUIconfig.viewport.width || 'device-width'}
+        width = ${ FlowUIconfig.viewport.width || 'device-width' }
         scale = ${ FlowUIconfig.viewport.scale || 1 }
     }
 
@@ -13,6 +13,15 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
         cache = ${ FlowUIconfig.bootstrap.cache }
         script = ${ FlowUIconfig.bootstrap.script }
         icons = ${ FlowUIconfig.bootstrap.icons }
+    }
+
+    @context.flowuijs = Neos.Fusion:Tag {
+        tagName = 'script'
+        attributes {
+            src = Neos.Fusion:ResourceUri {
+                path = 'resource://W3bkit.FlowUI/Public/JavaScript/flowui.js'
+            }
+        }
     }
 
     head = Neos.Fusion:Tag {
@@ -28,6 +37,7 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
                 <Neos.Fusion:Loop items={ FlowUIconfig.cdn } >
                     <W3bkit.FlowUI:CDN data={ item } />
                 </Neos.Fusion:Loop>
+                { flowuijs }
             `
         }
     }
