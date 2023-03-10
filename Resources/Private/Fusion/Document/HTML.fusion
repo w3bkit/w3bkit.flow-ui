@@ -43,11 +43,11 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
     }
 
     renderer = afx`
-        {props.doctype}
+        { props.doctype }
         <html lang={ FlowUIconfig.html.lang || 'en' } >
-            {props.head}
+            { props.head }
             <body>
-                {props.content}
+                { props.content }
             </body>
         </html>
     `
