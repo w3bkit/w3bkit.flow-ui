@@ -1,0 +1,3 @@
+prototype(W3bkit.FlowUI:CDN) {
+	@class = 'W3bkit\\FlowUI\\Fusion\\CDN'
+}
