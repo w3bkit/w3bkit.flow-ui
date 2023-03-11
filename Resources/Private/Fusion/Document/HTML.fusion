@@ -3,16 +3,16 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
     doctype = ${ '<!DOCTYPE html>' }
 
     @context.viewport = W3bkit.FlowUI:Viewport {
-        width = ${ FlowUIconfig.viewport.width || 'device-width' }
-        scale = ${ FlowUIconfig.viewport.scale || 1 }
+        width = ${ FlowUIdocument.viewport.width || 'device-width' }
+        scale = ${ FlowUIdocument.viewport.scale || 1 }
     }
 
     @context.bootstrap = W3bkit.FlowUI:Bootstrap {
-        style = ${ FlowUIconfig.bootstrap.style }
-        minify = ${ FlowUIconfig.bootstrap.minify }
-        cache = ${ FlowUIconfig.bootstrap.cache }
-        script = ${ FlowUIconfig.bootstrap.script }
-        icons = ${ FlowUIconfig.bootstrap.icons }
+        style = ${ FlowUIdocument.bootstrap.style }
+        minify = ${ FlowUIdocument.bootstrap.minify }
+        cache = ${ FlowUIdocument.bootstrap.cache }
+        script = ${ FlowUIdocument.bootstrap.script }
+        icons = ${ FlowUIdocument.bootstrap.icons }
     }
 
     @context.flowuijs = Neos.Fusion:Tag {
@@ -30,11 +30,11 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
             renderer = afx`
                 <meta charset='utf-8' />
                 { viewport }
-                <Neos.Fusion:Loop items={ FlowUIconfig.meta } >
+                <Neos.Fusion:Loop @if.render={ FlowUIdocument.meta } items={ FlowUIdocument.meta } >
                     <meta name={ itemKey } content={ item } />
                 </Neos.Fusion:Loop>
                 { bootstrap }
-                <Neos.Fusion:Loop items={ FlowUIconfig.cdn } >
+                <Neos.Fusion:Loop @if.render={ FlowUIdocument.cdn } items={ FlowUIdocument.cdn } >
                     <W3bkit.FlowUI:CDN data={ item } />
                 </Neos.Fusion:Loop>
                 { flowuijs }
@@ -44,7 +44,7 @@ prototype(W3bkit.FlowUI:Document.HTML) < prototype(Neos.Fusion:Component) {
 
     renderer = afx`
         { props.doctype }
-        <html lang={ FlowUIconfig.html.lang || 'en' } >
+        <html lang={ FlowUIdocument.html.lang || 'en' } >
             { props.head }
             <body>
                 { props.content }

@@ -31,7 +31,7 @@
          * @return void
          */
         protected function initializeView(ViewInterface $view):void {
-            $this->view->assign('FlowUIconfig', $this->flowUIconfig);
+            $this->view->assign('FlowUIdocument', $this->flowUIconfig['document']);
         }
 
     }
