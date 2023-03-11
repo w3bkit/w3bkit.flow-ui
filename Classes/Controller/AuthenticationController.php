@@ -36,7 +36,11 @@
             if( $originalRequest !== null ) {
                 $this->redirectToRequest($originalRequest);
             }
-            $this->redirect('index', 'Home', 'W3bkit.Lotus');
+            $this->redirect(
+                $this->flowUIconfig['authentication']['redirect']['success']['action'],
+                $this->flowUIconfig['authentication']['redirect']['success']['controller'],
+                $this->flowUIconfig['authentication']['redirect']['success']['package']
+            );
         }
 
         /**
